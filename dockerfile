@@ -22,10 +22,10 @@ mkdir "/home/${ANSIBLE_USER}/${ANSIBLE_FILES}" && \
 touch "/home/${ANSIBLE_USER}/ansible.log" && \
 echo "export ANSIBLE_HOME="/home/${ANSIBLE_USER}/${ANSIBLE_FILES}"" >> /etc/profile.d/misc-ansible-docker.sh
 USER ${ANSIBLE_USER}
-#RUN git clone https://github.com/kubernetes-sigs/kubespray.git
-#WORKDIR /home/$user/kubespray
-#USER root
-#RUN pip3 install -r requirements.txt
+RUN git clone https://github.com/kubernetes-sigs/kubespray.git
+WORKDIR /home/$user/kubespray
+USER root
+RUN pip3 install -r requirements.txt
 WORKDIR /home/${ANSIBLE_USER}
 USER ${ANSIBLE_USER}
 ENTRYPOINT tail -F ./ansible.log
