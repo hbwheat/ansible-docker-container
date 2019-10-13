@@ -10,7 +10,7 @@ rm -rf /var/cache/yum > /dev/null
 #set these in a docker-compose file and .env file
 
 FROM baseAnsible
-ARG ANSIBLE_USER
+ARG ANSIBLE_USER=ansible
 ARG ANSIBLE_FILES=ansiblefiles
 RUN curl -o /etc/bash_completion.d/ansible-completion.bash https://raw.githubusercontent.com/dysosmus/ansible-completion/master/ansible-completion.bash >> dev/null
 RUN adduser ${ANSIBLE_USER} && \
