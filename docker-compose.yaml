@@ -16,11 +16,11 @@ services:
       - "9022:22"
     volumes: 
       # current user .ssh keys in container for use
-      - ~/.ssh/:/home/${USER}/.ssh:ro
+      - ~/.ssh/:/home/$USER/.ssh:ro
       # use variable notation to put items in $HOME 
 #     ~ ./folder:/home/${USER}/folder
-      - ./kubespray:/home/${USER}/kubespray
+      - ./kubespray:/home/$USER/kubespray
       # ansible configuration files and editing outside of container
       #- ./ansible-storage/ansible.cfg:/home/${USER}/ansible.cfg
       #- ./ansible-storage/ansible.log:/home/${USER}/${FILES}/ansible.log
-      - ./ansible-storage/:/home/${USER}/${FILES}/
+      - ./ansible-storage/:/home/$USER/$FILES/
