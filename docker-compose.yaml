@@ -2,8 +2,7 @@ version: "3.3"
 # docker exec -it ansible-test_ansible_1 /bin/bash
 services: 
   ansible:
-    env_file:
-      - build.env
+    #env_file: build.env
     build: 
       context: .
       dockerfile: dockerfile
