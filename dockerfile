@@ -24,7 +24,6 @@ USER ${ANSIBLE_USER}
 #RUN pip3 install -r requirements.txt
 WORKDIR /home/${ANSIBLE_USER}
 USER ${ANSIBLE_USER}
-#VOLUME /home/${ANSIBLE_USER}
-ENTRYPOINT tail -F ${ANSIBLE_FILES}/ansible.log
+CMD tail -F "/home/whe-mac/ansiblefiles/ansible.log"
 #ENTRYPOINT tail -f /dev/null
 
