@@ -1,1 +1,8 @@
-test
+2019-10-13 14:01:48,484 p=25 u=whe-mac |  centos02 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2019-10-13 14:01:48,741 p=25 u=whe-mac |  raspberry | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}

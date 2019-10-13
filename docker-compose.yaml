@@ -7,18 +7,18 @@ services:
       dockerfile: dockerfile
       args:  
         ANSIBLE_FILES: ${FILES}
-        ANSIBLE_USER: ${ANSIBLEUSER} #set in .env file in same level as docker-compose.yaml
+        ANSIBLE_USER: ${ANSIBLE_USER} #set in .env file in same level as docker-compose.yaml
     image: ansible-centos7:latest
     container_name: ansible_runner
     ports:
       - "9022:22"
     volumes: 
       # current user .ssh keys in container for use
-      - ~/.ssh/:/home/${ANSIBLEUSER}/.ssh:ro
+      - ~/.ssh/:/home/${ANSIBLE_USER}/.ssh:ro
       # use variable notation to put items in $HOME 
 #     ~ ./folder:/home/${USER}/folder
-      - ./kubespray:/home/${ANSIBLEUSER}/kubespray
+      - ./kubespray:/home/${ANSIBLE_USER}/kubespray
       # ansible configuration files and editing outside of container
-      #- ./ansible-storage/ansible.cfg:/home/${USER}/ansible.cfg
-      - ./ansible-storage/ansible.log:/home/${ANSIBLEUSER}/${FILES}/ansible.log
-      - ./ansible-storage/:/home/${ANSIBLEUSER}/${FILES}/
+      - ./ansible-storage/ansible.cfg:/etc/ansible/ansible.cfg
+      - ./ansible-storage/ansible.log:/home/${ANSIBLE_USER}/ansible.log
+      - ./ansible-storage/:/home/${ANSIBLE_USER}/${FILES}/
