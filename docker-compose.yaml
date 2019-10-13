@@ -5,9 +5,10 @@ services:
     build: 
       context: .
       dockerfile: dockerfile
-      args:  
+      args:  #set in .env file in same level as docker-compose.yaml
         ANSIBLE_FILES: ${FILES}
-        ANSIBLE_USER: ${ANSIBLE_USER} #set in .env file in same level as docker-compose.yaml
+        ANSIBLE_USER_PASS: ${PASS}
+        ANSIBLE_USER: ${ANSIBLE_USER} 
     image: ansible-centos7:latest
     container_name: ansible_runner
     ports:

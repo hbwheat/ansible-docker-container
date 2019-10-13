@@ -6,3 +6,11 @@
     "changed": false, 
     "ping": "pong"
 }
+2019-10-13 14:16:59,650 p=77 u=whe-mac |  centos02 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2019-10-13 14:17:00,034 p=77 u=whe-mac |  raspberry | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}

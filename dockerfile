@@ -12,8 +12,11 @@ rm -rf /var/cache/yum > /dev/null
 FROM baseAnsible
 ARG ANSIBLE_USER=ansible
 ARG ANSIBLE_FILES=ansiblefiles
+ARG ANSIBLE_USER_PASS=ansible
 RUN curl -o /etc/bash_completion.d/ansible-completion.bash https://raw.githubusercontent.com/dysosmus/ansible-completion/master/ansible-completion.bash >> dev/null
 RUN adduser ${ANSIBLE_USER} && \
+echo ${ANSIBLE_USER}:${ANSIBLE_USER_PASS} | chpasswd && \
+usermod -aG wheel ${ANSIBLE_USER} && \
 chown -R ${ANSIBLE_USER} /home/${ANSIBLE_USER}/ && \
 mkdir "/home/${ANSIBLE_USER}/${ANSIBLE_FILES}" && \
 touch "/home/${ANSIBLE_USER}/ansible.log" && \
