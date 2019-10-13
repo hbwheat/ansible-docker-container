@@ -1,0 +1,9 @@
+# Ignore a couple of files
+
+# Not relevant for version control at the moment 
+kubespray/
+ansible-storage/inventory/
+ansible-storage/roles/
+
+#Extra
+.DS_Store
