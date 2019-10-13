@@ -11,7 +11,7 @@ rm -rf /var/cache/yum > /dev/null
 
 FROM baseAnsible
 ARG ANSIBLE_USER
-ARG ANSIBLE_FILES
+ARG ANSIBLE_FILES=ansiblefiles
 RUN curl -o /etc/bash_completion.d/ansible-completion.bash https://raw.githubusercontent.com/dysosmus/ansible-completion/master/ansible-completion.bash >> dev/null
 RUN adduser ${ANSIBLE_USER} && \
 chown -R ${ANSIBLE_USER}:root /home/${ANSIBLE_USER}/ && \
@@ -25,6 +25,6 @@ USER ${ANSIBLE_USER}
 WORKDIR /home/${ANSIBLE_USER}
 USER ${ANSIBLE_USER}
 #VOLUME /home/${ANSIBLE_USER}
-ENTRYPOINT tail -F ansiblefiles/ansible.log
+ENTRYPOINT tail -F ${ANSIBLE_FILES}/ansible.log
 #ENTRYPOINT tail -f /dev/null
 

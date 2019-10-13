@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3.3"
 # docker exec -it ansible-test_ansible_1 /bin/bash
 services: 
   ansible:
@@ -8,8 +8,8 @@ services:
       context: .
       dockerfile: dockerfile
       args:  
-        - ANSIBLE_FILES=${FILES}
-        - ANSIBLE_USER=${USER} #set in .env file in same level as docker-compose.yaml
+        ANSIBLE_FILES: ${FILES}
+        ANSIBLE_USER: ${USER} #set in .env file in same level as docker-compose.yaml
     image: ansible-centos7:latest
     container_name: ansible_runner
     ports:
